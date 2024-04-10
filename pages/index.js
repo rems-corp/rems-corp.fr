@@ -19,7 +19,7 @@ const Home = () => {
               'Développeur', 2000,
               'Designer', 2000,
               'Entrepreneur', 2000,
-              'Professeur', 2000,
+              //'Professeur', 2000,
             ]} speed={50} repeat={Infinity} className="text-accent"></TypeAnimation>
           </motion.h1>
           <motion.p variants={fadeIn('down', 0.3)} initial="hidden" animate="show" exit="hidden" className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16">
@@ -31,6 +31,7 @@ const Home = () => {
           <motion.div variants={fadeIn('up', 0.3)} initial="hidden" animate="show" exit="hidden" className="absolute right-[18%] bottom-[22%] xl:block hidden">
             <Image src="/logo.png" alt="logo" width={300} height={180} />
           </motion.div>
+          
         </div>
       </div>
     </section>
