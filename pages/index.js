@@ -23,7 +23,7 @@ const Home = () => {
             ]} speed={50} repeat={Infinity} className="text-accent"></TypeAnimation>
           </motion.h1>
           <motion.p variants={fadeIn('down', 0.3)} initial="hidden" animate="show" exit="hidden" className="max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16">
-            Au sein de la Rem's Corp, nous mettons tout en oeuvre pour vous proposer des services de qualité.
+            Au sein de la Rem&apos;s Corp, nous mettons tout en oeuvre pour vous proposer des services de qualité.
             Nous sommes spécialisés dans de nombreux domaines informatiques et notre équipe est composée de professionnels expérimentés.
           </motion.p>
           <div className="flex justify-center xl:hidden relative"><QuoteBtn /></div>

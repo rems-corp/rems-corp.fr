@@ -10,7 +10,7 @@ const Contact = () => {
         <section id="contact" className="py-16 bg-gray-800 text-white h-screen">
             <div className="container mx-auto mt-16 text-center w-7/12 justify-center">
                 <h1 className="text-3xl ml-8">Contactez nous</h1>
-                <p className="text-base mt-4 ml-28 w-10/12">Sentez-vous libre de nous contacter comme il vous plait. Que vous ayez une question, un avis, ou une proposition de collaboration : nous serons ravis d'entendre ce que vous avez à dire.</p>
+                <p className="text-base mt-4 ml-28 w-10/12">Sentez-vous libre de nous contacter comme il vous plait. Que vous ayez une question, un avis, ou une proposition de collaboration : nous serons ravis d&apos;entendre ce que vous avez à dire.</p>
 
                 <form className="mt-16 ml-52 w-8/12">
                 
@@ -30,9 +30,9 @@ const Contact = () => {
                 <a className="mail hidden ml-16" href="mailto:contact@rems-corp.fr">contact@rems-corp.fr</a>
 
                 <div className="text-center mt-28 ml-12">
-                    <p>Rem's Corp - Entreprise Individuelle</p>
+                    <p>Rem&apos;s Corp - Entreprise Individuelle</p>
                     <p>SIREN 923902506 - NAF 8299Z</p>
-                    <p className="mt-8">© Copyright 2023 Rem's Corp</p>
+                    <p className="mt-8">© Copyright 2023 Rem&apos;s Corp</p>
                 </div>
 
             </div>
