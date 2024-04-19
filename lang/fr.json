@@ -1,0 +1,18 @@
+{
+    "home.title": "Je suis un",
+    "home.jobs.0": "Développeur",
+    "home.jobs.1": "Designer",
+    "home.jobs.2": "Professeur",
+    "home.jobs.3": "Entrepreneur",
+    "home.desc": "Au sein de la Rem's Corp, nous mettons tout en oeuvre pour vous proposer des services de qualité. Nous sommes spécialisés dans de nombreux domaines informatiques et notre équipe est composée de professionnels expérimentés.",
+    "home.btn": "Demander un devis",
+
+    "contact.title": "Contactez-nous",
+    "contact.desc": "Sentez-vous libre de nous contacter comme il vous plait. Que vous ayez une question, un avis, ou une proposition de collaboration : nous serons ravis d&apos;entendre ce que vous avez à dire.",
+    "contact.form.name": "Nom",
+    "contact.form.email": "Email",
+    "contact.form.subject": "Message",
+    "contact.form.submit": "Envoyer",
+    "contact.emailLink": "Ou cliquez ici pour voir notre adresse email"
+
+}

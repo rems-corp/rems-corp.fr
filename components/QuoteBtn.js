@@ -3,6 +3,7 @@ import { HiArrowRight } from "react-icons/hi2";
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "./Nav";
+import { FormattedMessage } from "react-intl";
 
 
 const QuoteBtn = () => {  
@@ -14,7 +15,7 @@ const QuoteBtn = () => {
       </Link> */}
 
       <Link href={"#contact"} className="relative w-48 h-16 xl:m-0 md:mt-11 flex justify-center items-center group border-white border-solid border-2 hover:bg-white hover:text-black transition-all duration-300">
-        Demander un devis
+          <FormattedMessage id="home.btn" />
       </Link>
     </div>
   );

@@ -19,7 +19,7 @@ export const navData = [
 import { useEffect, useState } from 'react';
 
 const Nav = () => {
-  const [currentSection, setCurrentSection] = useState('');
+  const [currentSection, setCurrentSection] = useState('home');
 
   const handleScroll = () => {
     let container = document.querySelector('.page');
@@ -39,7 +39,6 @@ const Nav = () => {
   useEffect(() => {
     let container = document.querySelector('.page');
     container.addEventListener('scroll', handleScroll, false);
-    handleScroll();
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
 
