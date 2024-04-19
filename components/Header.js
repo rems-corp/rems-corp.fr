@@ -2,15 +2,13 @@ import Image from 'next/image';
 import { HiChevronDown } from 'react-icons/hi2';
 import { useState } from 'react';
 
-const Header = () => {
+const Header = ({ changeLocale }) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+
   const handleMouseEnter = () => { setDropdownVisible(true); };
-  const clickFlag = (local) => {
+  
+  const clickFlag = (lang) => {
     setDropdownVisible(false);
-    console.log("leave");
-    console.log(local);
-    // if (local === 'en') { }
-    // else if (local === 'fr') { }
   };
 
   return (
