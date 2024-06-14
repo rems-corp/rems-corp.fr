@@ -1,4 +1,5 @@
-
+import React from 'react';
+import FramedText from '../components/FramedText';
 
 const About = () => {
     return (
