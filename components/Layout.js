@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
       <Header />
       <Nav />
       {children}
-      {/* <About />
-      <Services />
+      <About />
+      {/* <Services />
       <Work />
       <Testimonials /> */}
       <Contact />
