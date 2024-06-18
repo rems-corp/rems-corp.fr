@@ -13,5 +13,12 @@
     "contact.form.email": "Email",
     "contact.form.subject": "Message",
     "contact.form.submit": "Submit",
-    "contact.emailLink": "Or click here to see our email address"
+    "contact.emailLink": "Or click here to see our email address",
+
+    "about.section.title": "About Us",
+    "about.section.text1": "Welcome to Rem's Corp, your partner in crafting beautiful and functional websites.",
+    "about.section.text2": "Founded in [year] and located in Drôme, France, we specialize in developing websites for individuals and businesses.",
+    "about.section.text3": "At Rem's Corp, we are dedicated to turning ideas into digital reality, delivering high-quality web solutions tailored to meet the unique needs of our clients."
+    
+    
 }
