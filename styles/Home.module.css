@@ -21,4 +21,12 @@
     #about .container {
         max-width: 800px;
     }
+
+/* Animation de fond pour la bande rouge */
+@keyframes changeColor {
+    0% { background-color: #FF4444; } /* Rouge foncé */
+    50% { background-color: #FF6666; } /* Rouge clair */
+    100% { background-color: #FF4444; } /* Rouge foncé */
+}
+
 }
