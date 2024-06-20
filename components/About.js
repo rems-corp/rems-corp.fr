@@ -52,6 +52,7 @@ const About = () => {
                 backgroundImage: `url('/logopc.png')`, // Background image
                 backgroundColor: 'rgba(255, 255, 255, 0.5)', // Lightened background color with opacity
                 paddingTop: '8vh', // Adjusted padding top for spacing
+                filter: 'brightness(80%)', // Adjusted brightness for background image
             }}
         >
             {/* Gray overlay */}
@@ -59,8 +60,8 @@ const About = () => {
 
             {/* Main content with rounded corners */}
             <div className="container mx-auto text-center relative z-10 py-16">
-                {/* Red banner for "About Us" with customized color */}
-                <div className="bg-red-600 w-full py-4 shadow-lg mb-8 rounded-xl absolute top-0 left-0 right-0 flex justify-center">
+                {/* Cyan banner for "About Us" with customized color */}
+                <div className="bg-cyan-600 w-full py-4 shadow-lg mb-8 rounded-xl absolute top-0 left-0 right-0 flex justify-center">
                     <h2 className="text-4xl font-bold text-white mt-2"> {/* Adjusted margin top */}
                         <FormattedMessage id="about.section.title" defaultMessage="About Us" />
                     </h2>
