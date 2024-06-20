@@ -1,75 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
-
-const About = () => {
-    const [displayedText, setDisplayedText] = useState('');
-    const [showCursor, setShowCursor] = useState(true); // State to control cursor visibility
-    const fullText = [
-        "Welcome to Rem's Corp, your partner in crafting beautiful and functional websites. ",
-        "Founded in 2023 and located in Drôme, France, we specialize in developing websites for individuals and businesses. ",
-        "At Rem's Corp, we are dedicated to turning ideas into digital reality, delivering high-quality web solutions tailored to meet the unique needs of our clients."
-    ].join(''); // Combine all text into one string
-
+import {
+    HiHome,
+    HiUser,
+    HiViewColumns,
+    HiRectangleGroup,
+    HiChatBubbleBottomCenterText,
+    HiEnvelope,
+  } from 'react-icons/hi2';
+  
+  export const navData = [
+    { name: 'home', path: 'home', icon: <HiHome /> },
+     { name: 'about', path: 'about', icon: <HiUser /> },
+    // { name: 'services', path: 'services', icon: <HiRectangleGroup /> },
+    // { name: 'work', path: 'work', icon: <HiViewColumns /> },
+    // { name: 'testimonials', path: 'testimonials', icon: <HiChatBubbleBottomCenterText /> },
+    { name: 'contact', path: 'contact', icon: <HiEnvelope /> },
+  ];
+  
+  import { useEffect, useState } from 'react';
+  
+  const Nav = () => {
+    const [currentSection, setCurrentSection] = useState('home');
+  
+    const handleScroll = () => {
+      let container = document.querySelector('.page');
+      const pos = container.scrollTop;
+      const sections = navData.map((link) => link.path);
+      let current = '';
+  
+      sections.forEach((section) => {
+        const targetSection = document.getElementById(section);
+        if (targetSection.offsetTop <= pos && targetSection.offsetTop + targetSection.offsetHeight > pos) {
+          current = section;
+        }
+      });
+      setCurrentSection(current);
+    };
+  
     useEffect(() => {
-        let currentIndex = 0;
-        let interval;
-
-        const startTyping = () => {
-            setDisplayedText(''); // Clear previous text
-            currentIndex = 0; // Reset index
-            interval = setInterval(() => {
-                if (currentIndex < fullText.length) {
-                    setDisplayedText(prevText => prevText + fullText[currentIndex]);
-                    currentIndex++;
-                } else {
-                    clearInterval(interval); // Stop the interval once all text is displayed
-                    startCursorBlink(); // Start cursor blinking
-                }
-            }, 50); // Typing speed (50ms per character)
-        };
-
-        const startCursorBlink = () => {
-            setInterval(() => {
-                setShowCursor(prevShowCursor => !prevShowCursor); // Toggle cursor visibility
-            }, 500); // Blink every 500ms
-        };
-
-        startTyping();
-
-        return () => {
-            clearInterval(interval); // Clear interval on component unmount
-        };
-    }, []); // Effect runs only once on mount
-
+      let container = document.querySelector('.page');
+      container.addEventListener('scroll', handleScroll, false);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    const scrollToPage = page => {
+      const pageToScroll = document.getElementById(page);
+      pageToScroll.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    };
+  
     return (
-        <section
-            id="about"
-            className="relative py-16 bg-gray-800 text-white h-screen bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('/info.jpg')` }} // Background image
-        >
-            {/* Gray overlay */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-
-            {/* Main content with rounded corners */}
-            <div className="container mx-auto text-center relative z-10 rounded-xl">
-                {/* Red banner for "About Us" with customized color */}
-                <div className="bg-red-600 w-full py-4 shadow-lg mb-8 rounded-xl">
-                    <h2 className="text-4xl font-bold text-white">
-                        <FormattedMessage id="about.section.title" defaultMessage="About Us" />
-                    </h2>
-                </div>
-
-                {/* Text content with typewriter animation and cursor */}
-                <p className="text-lg mt-4 transition-opacity duration-1000 ease-in-out opacity-100 relative">
-                    {displayedText}
-                    {showCursor && <span className="ml-1">|</span>}
-                </p>
-
-                {/* Image below the text */}
-                <img src="/logopc.jpg" alt="Logo PC" className="mx-auto mt-8 rounded-xl shadow-lg" />
-            </div>
-        </section>
+      <nav className='flex flex-col items-center xl:justify-center gap-y-4 fixed h-max bottom-0 mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen'>
+        <div className="flex w-full xl:flex-col items-center justify-between xl:justify-center gap-y-1 px-4 md:px-40 xl:px-0 h-[80px] xl:h-max py-8 bg-white/10 backdrop-blur-sm text-3xl xl:test-xl xl:rounded-full">
+          {navData.map((link, _) => {
+            return (
+              <a key={link.path} onClick={() => scrollToPage(link.path)} className={`${link.path === currentSection ? 'text-accent' : ''} relative flex items-center group hover:text-accent transition-all duration-300 xl:pb-[17px] xl:last:pb-0`}>
+                <div className={`${link.path === currentSection ? 'rounded-full bg-white p-2' : ''} transition-all duration-200`}>{link.icon}</div>
+              </a>
+            );
+          })}
+        </div>
+      </nav>
     );
-}
-
-export default About;
+  };
+  
+  export default Nav;
