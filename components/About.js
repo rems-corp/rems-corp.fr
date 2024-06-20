@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 const About = () => {
     const [displayedText, setDisplayedText] = useState(''); // État pour gérer le texte affiché
     const [showCursor, setShowCursor] = useState(true); // État pour contrôler la visibilité du curseur
+    const intervalRef = useRef(null);
+    const isAboutVisible = useRef(false);
+    const aboutRef = useRef(null);
 
     useEffect(() => {
         const text1 = <FormattedMessage id="about.section.text1" defaultMessage="Welcome to Rem's Corp, your partner in crafting beautiful and functional websites. " />;
@@ -12,39 +15,53 @@ const About = () => {
 
         const fullText = `${text1.props.defaultMessage} ${text2.props.defaultMessage} ${text3.props.defaultMessage}`;
         let currentIndex = 0;
-        let interval;
-
+        
         const startTyping = () => {
             let text = ''; // Variable locale pour gérer le texte affiché
 
-            interval = setInterval(() => {
+            intervalRef.current = setInterval(() => {
                 if (currentIndex < fullText.length) {
                     text += fullText[currentIndex];
                     setDisplayedText(text);
                     currentIndex++;
                 } else {
-                    clearInterval(interval); // Arrêter l'intervalle une fois tout le texte affiché
+                    clearInterval(intervalRef.current); // Arrêter l'intervalle une fois tout le texte affiché
                     setShowCursor(false); // Cacher le curseur à la fin de l'animation
-                    setTimeout(() => {
-                        setDisplayedText(''); // Effacer le texte affiché après 7 secondes
-                        setShowCursor(true); // Afficher à nouveau le curseur
-                        currentIndex = 0; // Réinitialiser l'index pour recommencer
-                        startTyping(); // Redémarrer l'effet de machine à écrire
-                    }, 7000); // Maintenir le texte affiché pendant 7 secondes avant de le réinitialiser
                 }
-            }, 50); // Vitesse de frappe (50ms par caractère)
-
-            return () => clearInterval(interval); // Nettoyer l'intervalle lors du démontage du composant
+            }, 20); // Vitesse de frappe (20ms par caractère)
         };
 
-        startTyping();
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
+                    if (!isAboutVisible.current) {
+                        isAboutVisible.current = true;
+                        startTyping();
+                    }
+                } else {
+                    clearInterval(intervalRef.current);
+                    setDisplayedText('');
+                    setShowCursor(true);
+                    isAboutVisible.current = false;
+                    currentIndex = 0;
+                }
+            },
+            { threshold: 0.5 }
+        );
 
-        return () => clearInterval(interval); // Nettoyer l'intervalle lors du démontage du composant
+        observer.observe(aboutRef.current);
+
+        return () => {
+            observer.disconnect();
+            clearInterval(intervalRef.current);
+        };
     }, []);
 
     return (
         <section
             id="about"
+            ref={aboutRef}
             className="relative min-h-screen bg-cover bg-center flex justify-center items-start"
             style={{ 
                 backgroundImage: `url('/logopc.png')`, // Image de fond
