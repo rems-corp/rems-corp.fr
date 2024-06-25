@@ -57,7 +57,6 @@ const About = () => {
             clearInterval(intervalRef.current);
         };
     }, []);
-
     return (
         <section
             id="about"
