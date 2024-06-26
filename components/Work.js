@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -23,6 +23,14 @@ const projects = [
 const Work = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setSelectedIndex((prevIndex) => (prevIndex + 1) % projects.length);
+        }, 5000); // Délai de 5 secondes entre chaque défilement
+
+        return () => clearInterval(interval); // Clear interval on component unmount
+    }, []);
+
     const handleThumbClick = (index) => {
         setSelectedIndex(index);
     };
@@ -36,21 +44,10 @@ const Work = () => {
             <div className="container mx-auto text-center">
                 <h2 className="text-4xl font-bold mb-8">Our Work</h2>
                 <div className="max-w-4xl mx-auto relative">
-                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center z-10">
-                        {projects.map((project, index) => (
-                            <button
-                                key={index}
-                                type="button"
-                                onClick={() => handleThumbClick(index)}
-                                className={`mx-2 p-1 rounded-full border-2 border-transparent ${selectedIndex === index ? 'border-white' : 'border-gray-400 hover:border-white'}`}
-                                style={{ width: '10px', height: '10px', backgroundImage: `url(${project.image})`, backgroundSize: 'cover' }}
-                            />
-                        ))}
-                    </div>
                     <Carousel
                         showThumbs={false}
                         infiniteLoop={true}
-                        autoPlay={true}
+                        autoPlay={false} // Désactiver l'autoPlay natif
                         interval={5000} // Délai de 5 secondes entre chaque défilement
                         showStatus={false}
                         selectedItem={selectedIndex}
