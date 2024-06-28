@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Tableau des témoignages avec le terme "Profession"
+// Tableau des témoignages //
 const testimonials = [
     {
         name: 'Nom Prénom',
@@ -43,7 +43,7 @@ const Testimonials = () => {
             <div className="container mx-auto text-center relative z-10 flex flex-col justify-center h-full">
                 {/* Titre de la section encadré en rouge avec bordure épaisse */}
                 <h3 className="text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 text-white border-4 border-red-500 p-4 rounded-lg shadow-lg">
-                    Témoignages
+                    Testimonials
                 </h3>
                 <div className="flex flex-wrap justify-center">
                     {/* Boucle sur chaque témoignage pour créer une carte */}
