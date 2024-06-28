@@ -4,22 +4,26 @@
     "home.jobs.1": "Designer",
     "home.jobs.2": "Professeur",
     "home.jobs.3": "Entrepreneur",
-    "home.desc": "Au sein de la Rem's Corp, nous mettons tout en oeuvre pour vous proposer des services de qualité. Nous sommes spécialisés dans de nombreux domaines informatiques et notre équipe est composée de professionnels expérimentés.",
+    "home.desc": "Au sein de la Rem's Corp, nous mettons tout en œuvre pour vous proposer des services de qualité. Nous sommes spécialisés dans de nombreux domaines informatiques et notre équipe est composée de professionnels expérimentés.",
     "home.btn": "Demander un devis",
 
     "contact.title": "Contactez-nous",
-    "contact.desc": "Sentez-vous libre de nous contacter comme il vous plait. Que vous ayez une question, un avis, ou une proposition de collaboration : nous serons ravis d&apos;entendre ce que vous avez à dire.",
+    "contact.desc": "Sentez-vous libre de nous contacter comme il vous plait. Que vous ayez une question, un avis, ou une proposition de collaboration, nous serons ravis d'entendre ce que vous avez à dire.",
     "contact.form.name": "Nom",
     "contact.form.email": "Email",
     "contact.form.subject": "Message",
     "contact.form.submit": "Envoyer",
     "contact.emailLink": "Ou cliquez ici pour voir notre adresse email",
 
-    
     "about.section.title": "À propos de nous",
-    "about.section.text1": "Bienvenu chez Rem's Corp, votre partenaire dans la création de sites Web beaux et fonctionnels",
-    "about.section.text2": "Créé en 2023 et situé dans la Drôme, en France, nous sommes spécialisés dans le développement de sites internet pour particuliers et entreprises.",
-    "about.section.text3": "À la Rem's Corp, nous nous engageons à transformer les idées en réalité numérique, en fournissant des solutions Web de haute qualité adaptées pour répondre aux besoins uniques de nos clients."
-    }
-      
-
+    "about.section.description": "Bienvenu chez Rem's Corp, votre partenaire dans la création de sites Web beaux et fonctionnels. Créé en 2023 et situé dans la Drôme, en France, nous sommes spécialisés dans le développement de sites internet pour particuliers et entreprises. À la Rem's Corp, nous nous engageons à transformer les idées en réalité numérique, en fournissant des solutions Web de haute qualité adaptées pour répondre aux besoins uniques de nos clients.",
+    "about.section.service1.title": "Conception Web",
+    "about.section.service1.description": "Nous créons des designs époustouflants et conviviaux qui captivent votre audience.",
+    "about.section.service2.title": "Développement Web",
+    "about.section.service2.description": "Nous créons des sites web robustes et évolutifs adaptés à vos besoins commerciaux.",
+    "about.section.service3.title": "Optimisation",
+    "about.section.service3.description": "Nous optimisons votre site web pour qu'il se classe plus haut sur les moteurs de recherche.",
+    "about.section.text4": "Nous créons des designs époustouflants et conviviaux qui captivent votre audience.",
+    "about.section.text5": "Nous créons des sites web robustes et évolutifs adaptés à vos besoins commerciaux.",
+    "about.section.text6": "Nous optimisons votre site web pour qu'il se classe plus haut sur les moteurs de recherche."
+}

@@ -4,22 +4,26 @@
     "home.jobs.1": "Designer",
     "home.jobs.2": "Teacher",
     "home.jobs.3": "Entrepreneur",
-    "home.desc": "At Rem's Corp, we do everything we can, to offer you quality services. We specialize in many IT areas and our team is made up of experienced professionals.",
+    "home.desc": "At Rem's Corp, we do everything we can to offer you quality services. We specialize in many IT areas and our team is made up of experienced professionals.",
     "home.btn": "Ask for a quote",
 
     "contact.title": "Contact us",
-    "contact.desc": "Feel free to contact us as you please. Whether you have a question, an opinion, or a collaboration proposal: we will be happy to hear what you have to say.",
+    "contact.desc": "Feel free to contact us however you like. Whether you have a question, an opinion, or a collaboration proposal, we'll be happy to hear from you.",
     "contact.form.name": "Name",
     "contact.form.email": "Email",
     "contact.form.subject": "Message",
     "contact.form.submit": "Submit",
-    "contact.emailLink": "Or click here to see our email address",
+    "contact.emailLink": "Or click here to view our email address",
 
     "about.section.title": "About Us",
-    "about.section.text1": "Welcome to Rem's Corp, your partner in crafting beautiful and functional websites.",
-    "about.section.text2": "Founded in 2023 and located in Drôme, France, we specialize in developing websites for individuals and businesses.",
-    "about.section.text3": "At Rem's Corp, we are dedicated to turning ideas into digital reality, delivering high-quality web solutions tailored to meet the unique needs of our clients."
-    
-    
-    
+    "about.section.description": "Welcome to Rem's Corp, your partner in crafting beautiful and functional websites. Founded in 2023 and located in Drôme, France, we specialize in developing websites for individuals and businesses. At Rem's Corp, we are dedicated to turning ideas into digital reality, delivering high-quality web solutions tailored to meet the unique needs of our clients.",
+    "about.section.service1.title": "Web Design",
+    "about.section.service1.description": "We create stunning and user-friendly designs that captivate your audience.",
+    "about.section.service2.title": "Web Development",
+    "about.section.service2.description": "We create robust and scalable websites tailored to your business needs.",
+    "about.section.service3.title": "Optimization",
+    "about.section.service3.description": "We optimize your website to rank higher on search engines.",
+    "about.section.text4": "We create stunning and user-friendly designs that captivate your audience.",
+    "about.section.text5": "We create robust and scalable websites tailored to your business needs.",
+    "about.section.text6": "We optimize your website to rank higher on search engines."
 }
