@@ -1,96 +1,62 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 const About = () => {
-    const [displayedText, setDisplayedText] = useState(''); // État pour gérer le texte affiché
-    const [showCursor, setShowCursor] = useState(true); // État pour contrôler la visibilité du curseur
-    const intervalRef = useRef(null);
-    const isAboutVisible = useRef(false);
-    const aboutRef = useRef(null);
-
-    useEffect(() => {
-        const text1 = <FormattedMessage id="about.section.text1" defaultMessage="Welcome to Rem's Corp, your partner in crafting beautiful and functional websites. " />;
-        const text2 = <FormattedMessage id="about.section.text2" defaultMessage="Founded in 2023 and located in Drôme, France, we specialize in developing websites for individuals and businesses. " />;
-        const text3 = <FormattedMessage id="about.section.text3" defaultMessage="At Rem's Corp, we are dedicated to turning ideas into digital reality, delivering high-quality web solutions tailored to meet the unique needs of our clients." />;
-
-        const fullText = `${text1.props.defaultMessage} ${text2.props.defaultMessage} ${text3.props.defaultMessage}`;
-        let currentIndex = 0;
-        
-        const startTyping = () => {
-            let text = ''; // Variable locale pour gérer le texte affiché
-
-            intervalRef.current = setInterval(() => {
-                if (currentIndex < fullText.length) {
-                    text += fullText[currentIndex];
-                    setDisplayedText(text);
-                    currentIndex++;
-                } else {
-                    clearInterval(intervalRef.current); // Arrêter l'intervalle une fois tout le texte affiché
-                    setShowCursor(false); // Cacher le curseur à la fin de l'animation
-                }
-            }, 20); // Vitesse de frappe (20ms par caractère)
-        };
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const entry = entries[0];
-                if (entry.isIntersecting) {
-                    if (!isAboutVisible.current) {
-                        isAboutVisible.current = true;
-                        startTyping();
-                    }
-                } else {
-                    clearInterval(intervalRef.current);
-                    setDisplayedText('');
-                    setShowCursor(true);
-                    isAboutVisible.current = false;
-                    currentIndex = 0;
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        observer.observe(aboutRef.current);
-
-        return () => {
-            observer.disconnect();
-            clearInterval(intervalRef.current);
-        };
-    }, []);
     return (
-        <section
-            id="about"
-            ref={aboutRef}
-            className="relative min-h-screen bg-cover bg-center flex justify-center items-start"
-            style={{ 
-                backgroundImage: `url('/logopc.png')`, // Image de fond
-                backgroundColor: 'rgba(255, 255, 255, 0.5)', // Couleur de fond avec opacité
-                backgroundSize: 'cover', // Ajuster la taille de l'image de fond
-                backgroundPosition: 'center', // Centrer l'image de fond
-                paddingTop: '8vh', // Marge intérieure ajustée pour l'espacement
-                filter: 'brightness(80%)', // Luminosité réduite à 80% uniquement pour l'image de fond
-            }}
-        >
-            {/* Superposition grise */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-
-            {/* Contenu principal avec coins arrondis */}
-            <div className="container mx-auto text-center relative z-10 py-16">
-                {/* Bannière rouge */}
-                <div className="bg-red-600 w-full py-4 shadow-lg mb-8 rounded-xl absolute top-0 left-0 right-0 flex justify-center">
-                    <h2 className="text-4xl text-white mt-2">
-                        <FormattedMessage id="about.section.title" defaultMessage="À propos de nous" />
-                    </h2>
+        <section id="about" className="min-h-screen bg-cover bg-center flex items-center" style={{ backgroundImage: `url('/logopc.png')` }}>
+            <div className="container mx-auto px-4 py-24 text-center text-white">
+                <div className="max-w-3xl mx-auto">
+                    <div className="bg-red-600 w-full py-4 shadow-lg mb-8 rounded-xl">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white">
+                            <FormattedMessage id="about.section.title" defaultMessage="À propos de nous" />
+                        </h2>
+                    </div>
+                    <p className="text-lg md:text-xl leading-relaxed mb-8">
+                        <FormattedMessage
+                            id="about.section.description"
+                            defaultMessage="Welcome to Rem's Corp, your partner in crafting beautiful and functional websites. Founded in 2023 and located in Drôme, France, we specialize in developing websites for individuals and businesses. At Rem's Corp, we are dedicated to turning ideas into digital reality, delivering high-quality web solutions tailored to meet the unique needs of our clients."
+                        />
+                    </p>
                 </div>
 
-                {/* Contenu texte avec effet de machine à écrire et curseur */}
-                <p className="text-lg mt-14 transition-opacity duration-1000 ease-in-out opacity-100 relative z-10 text-white">
-                    {displayedText}
-                    {showCursor && <span className="ml-1 text-white">|</span>}
-                </p>
+                <div className="flex justify-center space-x-4">
+                    <div className="max-w-xs p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                        <h3 className="text-xl font-bold mb-2">
+                            <FormattedMessage id="about.section.service1.title" defaultMessage="Web Design" />
+                        </h3>
+                        <p className="text-sm md:text-base">
+                            <FormattedMessage
+                                id="about.section.service1.description"
+                                defaultMessage="We create stunning and user-friendly designs that captivate your audience."
+                            />
+                        </p>
+                    </div>
+                    <div className="max-w-xs p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                        <h3 className="text-xl font-bold mb-2">
+                            <FormattedMessage id="about.section.service2.title" defaultMessage="Web Development" />
+                        </h3>
+                        <p className="text-sm md:text-base">
+                            <FormattedMessage
+                                id="about.section.service2.description"
+                                defaultMessage="We create robust and scalable websites tailored to your business needs."
+                            />
+                        </p>
+                    </div>
+                    <div className="max-w-xs p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                        <h3 className="text-xl font-bold mb-2">
+                            <FormattedMessage id="about.section.service3.title" defaultMessage="Optimization" />
+                        </h3>
+                        <p className="text-sm md:text-base">
+                            <FormattedMessage
+                                id="about.section.service3.description"
+                                defaultMessage="We optimize your website to rank higher on search engines."
+                            />
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
     );
-}
+};
 
 export default About;
