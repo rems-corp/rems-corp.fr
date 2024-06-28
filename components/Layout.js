@@ -21,10 +21,10 @@ const Layout = ({ children }) => {
       <Nav />
       {children}
       <About />
-      {/*<Services  />
-      <Testimonial /> */}
-      <Work />
+      <Work /> 
+      <Testimonials />
       <Contact />
+      <Services  />  
     </div>
   );
 };
