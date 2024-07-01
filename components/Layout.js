@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
       <Work /> 
       <Testimonials />
       <Contact />
-      <Services  />  
+      {/*<Services  />*/}
     </div>
   );
 };

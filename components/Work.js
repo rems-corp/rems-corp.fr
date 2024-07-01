@@ -6,17 +6,17 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const projects = [
     {
         title: 'Image exemple projet 1',
-        description: 'Description for project one. Texte explicatif.',
+        description: 'Description pour le projet un. Texte explicatif.',
         image: 'project1.png', 
     },
     {
         title: 'Image exemple projet 2',
-        description: 'Description for project two. Texte explicatif.',
+        description: 'Description pour le projet deux. Texte explicatif.',
         image: 'project2.png',
     },
     {
         title: 'Image exemple projet 3',
-        description: 'Description for project three. Texte explicatif.',
+        description: 'Description pour le projet trois. Texte explicatif.',
         image: 'project3.png',
     },
 ];
@@ -39,10 +39,10 @@ const Work = () => {
     return (
         <section
             id="work"
-            className="py-12 lg:py-16 bg-gray-800 text-white"
+            className="h-screen min-h-screen py-12 lg:py-16 bg-gray-800 text-white"
             style={{ backgroundImage: 'url(workbg.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-            <div className="container mx-auto text-center px-4 lg:px-8">
+            <div className="container mx-auto text-center px-4 lg:px-8 h-full flex flex-col justify-center">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6 lg:mb-8">Our Work</h2>
                 <div className="max-w-5xl mx-auto relative">
                     <Carousel
