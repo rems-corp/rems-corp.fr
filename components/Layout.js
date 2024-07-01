@@ -20,11 +20,11 @@ const Layout = ({ children }) => {
       <Header />
       <Nav />
       {children}
-      {/* <About />
-      <Services />
-      <Work />
-      <Testimonials /> */}
+      <About />
+      <Work /> 
+      <Testimonials />
       <Contact />
+      {/*<Services  />*/}
     </div>
   );
 };
