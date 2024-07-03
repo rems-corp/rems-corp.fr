@@ -24,9 +24,9 @@ const Contact = () => {
                 <a className="mail pre" href="mailto:contact@rems-corp.fr">contact@rems-corp.fr</a>
 
                 <div className="text-center mt-10">
-                    <p>Rem&apos;s Corp - Entreprise Individuelle</p>
+                    <p>Rem's Corp - Entreprise Individuelle</p>
                     <p>SIREN 923902506 - NAF 8299Z</p>
-                    <p className="">© Copyright 2023 Rem&apos;s Corp</p>
+                    <p className="">© Copyright 2023 Rem's Corp</p>
                 </div>
 
             </div>
