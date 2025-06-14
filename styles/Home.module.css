@@ -1,0 +1,32 @@
+/* Code css pour About*/
+#about {
+    background-color: #333333;    /* texte gris foncé*/
+    color: #ffffff;               /* texte en blanc*/
+}
+
+#about .container {
+    padding: 4rem 0;
+}
+
+#about h2 {
+    color: #ff4d4d;                /*couleur rougeâtre pour les titres*/
+}
+
+#about p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+    #about .container {
+        max-width: 800px;
+    }
+
+/* Animation de fond pour la bande rouge */
+@keyframes changeColor {
+    0% { background-color: #FF4444; } /* Rouge foncé */
+    50% { background-color: #FF6666; } /* Rouge clair */
+    100% { background-color: #FF4444; } /* Rouge foncé */
+}
+
+}

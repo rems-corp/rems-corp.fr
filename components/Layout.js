@@ -20,11 +20,11 @@ const Layout = ({ children, locale, setLocale }) => {
       <Header locale={locale} setLocale={setLocale}/>
       <Nav />
       {children}
-      {/* <About />
-      <Services />
-      <Work />
-      <Testimonials /> */}
+      <About />
+      <Work /> 
+      <Testimonials />
       <Contact />
+      {/*<Services  />*/}
     </div>
   );
 };

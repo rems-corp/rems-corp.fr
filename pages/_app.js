@@ -20,6 +20,7 @@ function App({ Component, pageProps }) {
       setLocale(userLocale);
     }
   }, []);
+
   const messages = locale === "fr" ? French : English;
 
   return (

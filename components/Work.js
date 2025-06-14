@@ -1,11 +1,93 @@
+import { useState, useEffect } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+const projects = [
+    {
+        title: 'Yinsh game in Python',
+        description: 'Le jeu propose plusieurs modes : affrontez un autre joueur sur le même ordinateur, jouez contre l’IA, connectez-vous en local via deux PC en réseau, ou défiez des adversaires du monde entier en ligne. Deux modes de jeu sont disponibles, normal ou blitz, selon les règles classiques. L’interface conviviale met en évidence les déplacements possibles à chaque tour et détaille les actions de l’IA pour une meilleure compréhension. Les graphismes et l’interface ont été entièrement créés pour une expérience optimale.',
+        image: 'https://cf.geekdo-images.com/a9Dco_g83IUWxrpxsw8ibw__opengraph/img/74phPN2CgM3gtbOs4tUwsiE62I8=/0x0:510x268/fit-in/1200x630/filters:strip_icc()/pic2844830.png', 
+    },
+    {
+        title: "Cours pour la création d'app mobile",
+        description: "Pendant plusieurs mois, j’ai eu le plaisir d’accompagner une personne dans la création de son application mobile avec Flutter Flow. Ensemble, nous avons exploré les concepts essentiels du développement mobile, de la prise en main de l’outil à la compréhension des widgets et de la navigation. J’ai apporté mon aide à chaque étape, de la conception des écrans à l’optimisation de l’interface, en partageant des conseils pratiques et des astuces pour structurer efficacement le projet. Cet accompagnement personnalisé a permis à la personne de progresser rapidement et de gagner en autonomie, tout en développant une application à la fois fonctionnelle et attrayante.",
+        image: "https://cdn.prod.website-files.com/63c6a35ee97bea3e121bf3f4/65ba7491e40fedfb99bcc637_6400a42c1d0e4a0280784426_flutterflow.webp",
+    },
+];
+
 const Work = () => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        if (isPaused) return;
+
+        const interval = setInterval(() => {
+            setSelectedIndex((prevIndex) => (prevIndex + 1) % projects.length);
+        }, 8000);
+        return () => clearInterval(interval);
+    }, [isPaused]);
+
+    const handleThumbClick = (index) => {
+        setSelectedIndex(index);
+        setIsPaused(true); // Stoppe le défilement au clic
+    };
+
+    // Arrête le défilement au survol ou au clic
+    const handleMouseEnter = () => setIsPaused(true);
+    const handleMouseLeave = () => setIsPaused(false);
+
     return (
-        <section id="work" className="py-16 bg-gray-800 text-white h-screen">
-            <div className="container mx-auto text-center">
-                Work
+        <section
+            id="work"
+            className="h-screen min-h-screen py-12 lg:py-16 bg-primary/60 text-white"
+        >
+            <div className="container mx-auto text-center px-4 lg:px-8 h-full flex flex-col justify-center">
+                <h3 className="text-4xl lg:text-5xl font-bold mt-8 mb-8 text-white p-6 rounded-lg">
+                    Projects
+                </h3>
+                <div
+                    className="max-w-5xl mx-auto relative"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={handleMouseEnter}
+                >
+                    <Carousel
+                        showThumbs={false}
+                        infiniteLoop={true}
+                        autoPlay={false}
+                        showStatus={false}
+                        selectedItem={selectedIndex}
+                        onChange={setSelectedIndex}
+                        className="work-carousel"
+                        renderArrowPrev={() => null}
+                        renderArrowNext={() => null}
+                        renderIndicator={() => null}
+                    >
+                        {projects.map((project, index) => (
+                            <div key={index} className="bg-gray-700 bg-opacity-75 rounded-lg shadow-lg overflow-hidden">
+                                <img src={project.image} alt={project.title} className="w-full h-64 lg:h-80" />
+                                <div className="p-4 lg:p-6">
+                                    <h3 className="text-2xl lg:text-3xl font-bold mb-2">{project.title}</h3>
+                                    <p className="text-gray-300 text-sm lg:text-base">{project.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </Carousel>
+                    <div className="flex justify-center mt-4 lg:mt-6">
+                        {projects.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleThumbClick(index)}
+                                className={`mx-2 p-1 rounded-full border-2 border-transparent focus:outline-none ${selectedIndex === index ? 'border-white' : 'border-gray-400 hover:border-white'}`}
+                                style={{ width: '40px', height: '40px', }}
+                            >{index+1}</button>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
-}
+};
 
-export default Work
+export default Work;
