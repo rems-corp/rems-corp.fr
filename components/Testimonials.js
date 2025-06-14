@@ -75,10 +75,13 @@ const Testimonials = () => {
     const handlePrev = () => setPage((prev) => Math.max(prev - 1, 0));
     const handleNext = () => setPage((prev) => Math.min(prev + 1, totalPages - 1));
 
-    const paginatedTestimonials = testimonials.slice(
-        page * cardsPerPage,
-        page * cardsPerPage + cardsPerPage
-    );
+    // On détecte si on est sur mobile (window width < 768px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+    // Sur mobile, on affiche tout, sinon on pagine
+    const displayedTestimonials = isMobile
+        ? testimonials
+        : testimonials.slice(page * cardsPerPage, page * cardsPerPage + cardsPerPage);
 
     return (
         <section id="testimonials" className="min-h-screen bg-gray-800 relative overflow-hidden">
@@ -87,17 +90,33 @@ const Testimonials = () => {
                     Testimonials
                 </h3>
                 <div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="
+                        flex md:grid
+                        flex-row md:grid-cols-2 lg:grid-cols-3
+                        gap-6
+                        overflow-x-auto md:overflow-x-visible
+                        pb-4
+                        snap-x snap-mandatory
+                    "
                     style={{
-                        minHeight: "443px", // Ajuste la hauteur minimale pour garder la pagination en bas
+                        minHeight: "443px",
                         alignContent: "start"
                     }}
                 >
-                    {paginatedTestimonials.map((testimonial, index) => (
+                    {displayedTestimonials.map((testimonial, index) => (
                         <div
-                            key={page * cardsPerPage + index}
-                            className="testimonial-card p-6 rounded-lg text-white shadow-lg bg-gradient-to-tr from-indigo-500 via-purple-600 to-pink-500 flex flex-col items-center relative cursor-pointer hover:scale-105 transition-transform"
-                            onClick={() => setSelected(page * cardsPerPage + index)}
+                            key={isMobile ? index : page * cardsPerPage + index}
+                            className={`
+                                testimonial-card
+                                min-w-[85vw] max-w-[90vw] md:min-w-0 md:max-w-none
+                                p-6 rounded-lg text-white shadow-lg
+                                bg-gradient-to-tr from-indigo-500 via-purple-600 to-pink-500
+                                flex flex-col items-center relative cursor-pointer
+                                hover:scale-105 transition-transform
+                                snap-center
+                                ${isMobile ? 'pointer-events-none' : ''}
+                            `}
+                            onClick={!isMobile ? () => setSelected(page * cardsPerPage + index) : undefined}
                         >
                             <div className="flex items-center mb-2">
                                 <img
@@ -108,18 +127,23 @@ const Testimonials = () => {
                                 <span className="font-bold text-lg">{testimonial.name}</span>
                             </div>
                             <span className="text-sm text-gray-200 mb-2">{t({id: `country.${testimonial.countryCode}`})}</span>
-                            <p className="text-gray-100 mb-4 line-clamp-2">
-                                {testimonial.content.length > 60
-                                    ? testimonial.content.slice(0, 60) + '...'
-                                    : testimonial.content}
+
+                            {/* Affichage des étoiles directement sur mobile */}
+                            {isMobile && <Stars rating={testimonial.rating} />}
+                            
+                            {/* Texte limité à deux lignes si PC sinon, pas de limite (les tailles des textes sont suffisantes pour apparaitre en entier) */}
+                            <p className="text-gray-100 mb-4 md:line-clamp-2">
+                                {testimonial.content}
                             </p>
-                            <button className="mt-auto text-xs text-gray-300 bg-black/30 px-3 py-1 rounded hover:bg-black/50">
+                            
+                            {!isMobile && <button className="mt-auto text-xs text-gray-300 bg-black/30 px-3 py-1 rounded hover:bg-black/50">
                                 {t({id: "testimonials.review"})}
-                            </button>
+                            </button>}
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-center items-center mt-12 gap-4">
+                {/* Pagination seulement sur desktop */}
+                <div className="flex justify-center items-center mt-12 gap-4 md:flex hidden">
                     <button
                         onClick={handlePrev}
                         disabled={page === 0}
@@ -138,9 +162,8 @@ const Testimonials = () => {
                         &#8594;
                     </button>
                 </div>
-
                 {/* Popup modale */}
-                {selected !== null && (
+                {selected !== null && !isMobile && (
                     <div
                         className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
                         onClick={() => setSelected(null)}

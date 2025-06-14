@@ -11,7 +11,7 @@ import Header from './Header';
 import About from './About';
 import Contact from './Contact';
 import Services from './Services';
-import Work from './Work';
+import Projects from './Projects';
 import Testimonials from './Testimonials';
 
 const Layout = ({ children, locale, setLocale }) => {
@@ -21,7 +21,7 @@ const Layout = ({ children, locale, setLocale }) => {
       <Nav />
       {children}
       <About />
-      <Work /> 
+      <Projects /> 
       <Testimonials />
       <Contact />
       {/*<Services  />*/}
