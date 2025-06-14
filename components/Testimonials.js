@@ -67,20 +67,38 @@ const Stars = ({ rating }) => (
 const Testimonials = () => {
     const t = useIntl().formatMessage;
     const [selected, setSelected] = useState(null);
+    const [page, setPage] = useState(0);
+
+    const cardsPerPage = 6;
+    const totalPages = Math.ceil(testimonials.length / cardsPerPage);
+
+    const handlePrev = () => setPage((prev) => Math.max(prev - 1, 0));
+    const handleNext = () => setPage((prev) => Math.min(prev + 1, totalPages - 1));
+
+    const paginatedTestimonials = testimonials.slice(
+        page * cardsPerPage,
+        page * cardsPerPage + cardsPerPage
+    );
 
     return (
         <section id="testimonials" className="min-h-screen bg-gray-800 relative overflow-hidden">
             <div className="container mx-auto text-center relative z-10 flex flex-col justify-center py-16">
                 {/* Titre de la section encadré en rouge avec bordure épaisse */}
-                <h3 className="text-4xl lg:text-5xl font-bold mb-8 text-white border-4 border-red-500 p-6 rounded-lg shadow-2xl">
+                <h3 className="text-4xl lg:text-5xl font-bold mt-8 mb-8 text-white border-4 border-red-500 p-6 rounded-lg shadow-2xl">
                     Testimonials
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {testimonials.map((testimonial, index) => (
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    style={{
+                        minHeight: "443px", // Ajuste la hauteur minimale pour garder la pagination en bas
+                        alignContent: "start"
+                    }}
+                >
+                    {paginatedTestimonials.map((testimonial, index) => (
                         <div
-                            key={index}
+                            key={page * cardsPerPage + index}
                             className="testimonial-card p-6 rounded-lg text-white shadow-lg bg-gradient-to-tr from-indigo-500 via-purple-600 to-pink-500 flex flex-col items-center relative cursor-pointer hover:scale-105 transition-transform"
-                            onClick={() => setSelected(index)}
+                            onClick={() => setSelected(page * cardsPerPage + index)}
                         >
                             <div className="flex items-center mb-2">
                                 <img
@@ -101,6 +119,25 @@ const Testimonials = () => {
                             </button>
                         </div>
                     ))}
+                </div>
+                <div className="flex justify-center items-center mt-12 gap-4">
+                    <button
+                        onClick={handlePrev}
+                        disabled={page === 0}
+                        className={`p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition ${page === 0 ? 'opacity-40 cursor-not-allowed' : ''}`}
+                        aria-label="Précédent"
+                    >
+                        &#8592;
+                    </button>
+                    <span className="text-white text-sm">{page + 1} / {totalPages}</span>
+                    <button
+                        onClick={handleNext}
+                        disabled={page === totalPages - 1}
+                        className={`p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition ${page === totalPages - 1 ? 'opacity-40 cursor-not-allowed' : ''}`}
+                        aria-label="Suivant"
+                    >
+                        &#8594;
+                    </button>
                 </div>
 
                 {/* Popup modale */}
