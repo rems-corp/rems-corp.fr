@@ -8,6 +8,8 @@ const Contact = () => {
 
     const [ state, handleSubmit ] = useForm("meokkqeg");
     const [ showSuccess, setShowSuccess ] = useState(false);
+
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
     
     useEffect(() => {
         if (state.succeeded) {
@@ -78,6 +80,7 @@ const Contact = () => {
                     <p>Rem's Corp - Entreprise Individuelle</p>
                     <p>SIREN 923902506 - NAF 8299Z</p>
                     <p>© Copyright 2023 Rem's Corp</p>
+                    {isMobile && <div><br /><br /></div>}
                 </div>
             </div>
         </section>
