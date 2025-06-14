@@ -1,33 +1,58 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Tableau des témoignages //
 const testimonials = [
     {
-        name: 'Nom Prénom 1',
-        position: 'Profession 1',
-        content: 'Avis client pour Nom Prénom 1.',
+        name: "moussavfx",
+        country: "Belgique",
+        countryCode: "be",
+        content: "Super entente meme a l'écoute après le deal, et travail soigné",
+        rating: 5,
     },
     {
-        name: 'Nom Prénom 2',
-        position: 'Profession 2',
-        content: 'Avis client pour Nom Prénom 2.',
+        name: "popipoui",
+        country: "France",
+        countryCode: "fr",
+        content: "J'ai eu le plaisir de collaborer avec cette personne, et je suis extrêmement satisfait. Les délais ont été respectés, la politesse était au rendez-vous, et le travail fourni était de très haute qualité. Je recommande vivement ses services!",
+        rating: 5,
     },
     {
-        name: 'Nom Prénom 3',
-        position: 'Profession 3',
-        content: 'Avis client pour Nom Prénom 3.',
+        name: "tarns244",
+        country: "Royaume-Uni",
+        countryCode: "gb",
+        content: "Very understanding and easy to work with. Totally recommend it, awesome guy.",
+        rating: 5,
     },
     {
-        name: 'Nom Prénom 4',
-        position: 'Profession 4',
-        content: 'Avis client pour Nom Prénom 4.',
+        name: "amar_kumar_1",
+        country: "Inde",
+        countryCode: "in",
+        content: "First, man this guy did a great job in listening my project, and asking doubts about it, before properly starting .....at a very reasonable price. I'm grateful for that. And the quality of work and time taken is awesome. And still responding to my doubts about the project.",
+        rating: 5,
     },
     {
-        name: 'Nom Prénom 5',
-        position: 'Profession 5',
-        content: 'Avis client pour Nom Prénom 5.',
+        name: "opificiosonico",
+        country: "Italie",
+        countryCode: "it",
+        content: "Awesome seller! Speedy response and super smart programmer +++ Comunica molto bene in Italiano",
+        rating: 5,
     },
     {
+        name: "kyler410",
+        country: "Etats-Unis",
+        countryCode: "us",
+        content: "Rems_38 was very helpful and delivered exactly what I ordered with a fast delivery",
+        rating: 5,
+    },
+    {
+        name: "flynnspath",
+        country: "Suisse",
+        countryCode: "ch",
+        content: "Great seller! Quick and efficient responses! He is very fluent in both French and English ! He was always here to answer any of my questions",
+        rating: 5, 
+    }
+];
+
 // Composant pour afficher les étoiles
 const Stars = ({ rating }) => (
     <div className="flex items-center justify-center mb-2">
