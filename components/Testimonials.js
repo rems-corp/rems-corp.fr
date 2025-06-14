@@ -64,7 +64,7 @@ const Stars = ({ rating }) => (
 );
 
 // Composant Testimonials pour afficher les témoignages
-const Testimonials = (isMobile) => {
+const Testimonials = ({ isMobile }) => {
     const t = useIntl().formatMessage;
     const [selected, setSelected] = useState(null);
     const [page, setPage] = useState(0);
