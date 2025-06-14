@@ -14,10 +14,10 @@ import Services from './Services';
 import Work from './Work';
 import Testimonials from './Testimonials';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, locale, setLocale }) => {
   return (
     <div className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative overflow-y-auto`}>
-      <Header />
+      <Header locale={locale} setLocale={setLocale}/>
       <Nav />
       {children}
       <About />

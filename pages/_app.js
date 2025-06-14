@@ -5,27 +5,31 @@ import Transition from '../components/Transition';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { IntlProvider } from 'react-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import French from '../lang/fr.json';
 import English from '../lang/en.json';
 
 function App({ Component, pageProps }) {
   const router = useRouter();
-
-  // const [locale, setLocale] = useState(navigator.language);
   const [locale, setLocale] = useState("en");
-  const messages = locale === "fr" ? French : English;
 
-  const changeLocale = (newLocale) => { setLocale(newLocale); };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userLocale = navigator.language === "fr" ? "fr" : "en";
+      setLocale(userLocale);
+    }
+  }, []);
+
+  const messages = locale === "fr" ? French : English;
 
   return (
     <IntlProvider locale={locale} messages={messages}>
-      <Layout>
+      <Layout locale={locale} setLocale={setLocale}>
         <AnimatePresence mode='wait'>
           <motion.div key={router.route} className='h-full'>
             <Transition />
-            <Component {...pageProps} changeLocale={changeLocale} />
+            <Component {...pageProps} />
           </motion.div>
         </AnimatePresence>
       </Layout>
