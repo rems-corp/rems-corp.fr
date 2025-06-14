@@ -11,19 +11,35 @@ import Header from './Header';
 import About from './About';
 import Contact from './Contact';
 import Services from './Services';
-import Work from './Work';
+import Projects from './Projects';
 import Testimonials from './Testimonials';
+import { useEffect, useState } from 'react';
 
 const Layout = ({ children, locale, setLocale }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+      const updateIsMobile = () => {
+          if (typeof window !== "undefined") {
+              setIsMobile(window.innerWidth < 768);
+          }
+      };
+      updateIsMobile(); // Set initial value
+      window.addEventListener('resize', updateIsMobile);
+      return () => {
+          window.removeEventListener('resize', updateIsMobile);
+      };
+  }, []);
+
   return (
     <div className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative overflow-y-auto`}>
-      <Header locale={locale} setLocale={setLocale}/>
+      <Header locale={locale} setLocale={setLocale} isMobile={isMobile}/>
       <Nav />
       {children}
       <About />
-      <Work /> 
-      <Testimonials />
-      <Contact />
+      <Projects isMobile={isMobile} /> 
+      <Testimonials isMobile={isMobile}/>
+      <Contact isMobile={isMobile} />
       {/*<Services  />*/}
     </div>
   );

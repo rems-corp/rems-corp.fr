@@ -15,7 +15,7 @@ const projects = [
     },
 ];
 
-const Work = () => {
+const Projects = ({ isMobile }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
@@ -39,15 +39,15 @@ const Work = () => {
 
     return (
         <section
-            id="work"
-            className="h-screen min-h-screen py-12 lg:py-16 bg-primary/60 text-white"
+            id="projects"
+            className="min-h-screen py-8 sm:py-12 lg:py-16 bg-primary/60 text-white flex flex-col"
         >
-            <div className="container mx-auto text-center px-4 lg:px-8 h-full flex flex-col justify-center">
-                <h3 className="text-4xl lg:text-5xl font-bold mt-8 mb-8 text-white p-6 rounded-lg">
+            <div className="container mx-auto text-center px-2 sm:px-4 lg:px-8 flex-1 flex flex-col justify-center mt-[-45px] md:mt-0">
+                <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-4 sm:mt-8 mb-4 sm:mb-8 text-white p-4 sm:p-6 rounded-lg">
                     Projects
                 </h3>
                 <div
-                    className="max-w-5xl mx-auto relative"
+                    className="w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mx-auto relative"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     onClick={handleMouseEnter}
@@ -65,23 +65,37 @@ const Work = () => {
                         renderIndicator={() => null}
                     >
                         {projects.map((project, index) => (
-                            <div key={index} className="bg-gray-700 bg-opacity-75 rounded-lg shadow-lg overflow-hidden">
-                                <img src={project.image} alt={project.title} className="w-full h-64 lg:h-80" />
-                                <div className="p-4 lg:p-6">
-                                    <h3 className="text-2xl lg:text-3xl font-bold mb-2">{project.title}</h3>
-                                    <p className="text-gray-300 text-sm lg:text-base">{project.description}</p>
+                            <div
+                                key={index}
+                                className="bg-gray-700 bg-opacity-75 rounded-lg shadow-lg overflow-hidden mx-2 sm:mx-4"
+                                style={{
+                                    maxWidth: '320px',
+                                    margin: '0 auto',
+                                    ...(!isMobile ? { maxWidth: 'none' } : {})
+                                }}
+                            >
+                                <img 
+                                    src={project.image} 
+                                    alt={project.title} 
+                                    className="w-full h-32 sm:h-48 lg:h-64 object-cover"
+                                />
+                                <div className="p-2 sm:p-4 lg:p-6">
+                                    <h3 className="text-base sm:text-xl lg:text-2xl font-bold mb-2">{project.title}</h3>
+                                    <p className="text-gray-300 text-xs sm:text-sm lg:text-base text-left">{project.description}</p>
                                 </div>
                             </div>
                         ))}
                     </Carousel>
-                    <div className="flex justify-center mt-4 lg:mt-6">
+                    <div className="flex justify-center mt-3 sm:mt-4 lg:mt-6">
                         {projects.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => handleThumbClick(index)}
-                                className={`mx-2 p-1 rounded-full border-2 border-transparent focus:outline-none ${selectedIndex === index ? 'border-white' : 'border-gray-400 hover:border-white'}`}
-                                style={{ width: '40px', height: '40px', }}
-                            >{index+1}</button>
+                                className={`mx-1 sm:mx-2 flex items-center justify-center rounded-full border-2 border-transparent focus:outline-none transition-colors duration-200 ${selectedIndex === index ? 'border-white bg-white/20' : 'border-gray-400 hover:border-white bg-white/10'}`}
+                                style={{ width: '32px', height: '32px', fontSize: '1rem', lineHeight: '1' }}
+                            >
+                                <span className="text-white font-semibold">{index + 1}</span>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -90,4 +104,4 @@ const Work = () => {
     );
 };
 
-export default Work;
+export default Projects;
