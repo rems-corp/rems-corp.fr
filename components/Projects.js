@@ -15,7 +15,7 @@ const projects = [
     },
 ];
 
-const Projects = (isMobile) => {
+const Projects = ({ isMobile }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
