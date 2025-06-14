@@ -19,9 +19,16 @@ const Layout = ({ children, locale, setLocale }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-      if (typeof window !== "undefined") {
-          setIsMobile(window.innerWidth < 768);
-      }
+      const updateIsMobile = () => {
+          if (typeof window !== "undefined") {
+              setIsMobile(window.innerWidth < 768);
+          }
+      };
+      updateIsMobile(); // Set initial value
+      window.addEventListener('resize', updateIsMobile);
+      return () => {
+          window.removeEventListener('resize', updateIsMobile);
+      };
   }, []);
 
   return (
