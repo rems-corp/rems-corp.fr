@@ -25,6 +25,15 @@
     "about.section.service3.description": "We optimize your website to rank higher on search engines.",
     "about.section.text4": "We create stunning and user-friendly designs that captivate your audience.",
     "about.section.text5": "We create robust and scalable websites tailored to your business needs.",
-    "about.section.text6": "We optimize your website to rank higher on search engines."
+    "about.section.text6": "We optimize your website to rank higher on search engines.",
     
+    "country.fr": "France",
+    "country.gb": "United Kingdom",
+    "country.be": "Belgium",
+    "country.ch": "Switzerland",
+    "country.it": "Italy",
+    "country.us": "United States",
+    "country.in": "India",
+
+    "testimonials.review": "See the review"
 }

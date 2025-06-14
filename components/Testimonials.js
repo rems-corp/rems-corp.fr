@@ -1,52 +1,46 @@
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 
 // Tableau des témoignages //
 const testimonials = [
     {
         name: "moussavfx",
-        country: "Belgique",
         countryCode: "be",
         content: "Super entente meme a l'écoute après le deal, et travail soigné",
         rating: 5,
     },
     {
         name: "popipoui",
-        country: "France",
         countryCode: "fr",
         content: "J'ai eu le plaisir de collaborer avec cette personne, et je suis extrêmement satisfait. Les délais ont été respectés, la politesse était au rendez-vous, et le travail fourni était de très haute qualité. Je recommande vivement ses services!",
         rating: 5,
     },
     {
         name: "tarns244",
-        country: "Royaume-Uni",
         countryCode: "gb",
         content: "Very understanding and easy to work with. Totally recommend it, awesome guy.",
         rating: 5,
     },
     {
         name: "amar_kumar_1",
-        country: "Inde",
         countryCode: "in",
         content: "First, man this guy did a great job in listening my project, and asking doubts about it, before properly starting .....at a very reasonable price. I'm grateful for that. And the quality of work and time taken is awesome. And still responding to my doubts about the project.",
         rating: 5,
     },
     {
         name: "opificiosonico",
-        country: "Italie",
         countryCode: "it",
         content: "Awesome seller! Speedy response and super smart programmer +++ Comunica molto bene in Italiano",
         rating: 5,
     },
     {
         name: "kyler410",
-        country: "Etats-Unis",
         countryCode: "us",
         content: "Rems_38 was very helpful and delivered exactly what I ordered with a fast delivery",
         rating: 5,
     },
     {
         name: "flynnspath",
-        country: "Suisse",
         countryCode: "ch",
         content: "Great seller! Quick and efficient responses! He is very fluent in both French and English ! He was always here to answer any of my questions",
         rating: 5, 
@@ -71,6 +65,7 @@ const Stars = ({ rating }) => (
 
 // Composant Testimonials pour afficher les témoignages
 const Testimonials = () => {
+    const t = useIntl().formatMessage;
     const [selected, setSelected] = useState(null);
 
     return (
@@ -90,19 +85,19 @@ const Testimonials = () => {
                             <div className="flex items-center mb-2">
                                 <img
                                     src={`https://flagcdn.com/24x18/${testimonial.countryCode}.png`}
-                                    alt={testimonial.country}
+                                    alt={t({id: `country.${testimonial.countryCode}`})}
                                     className="w-6 h-4 mr-2 rounded shadow"
                                 />
                                 <span className="font-bold text-lg">{testimonial.name}</span>
                             </div>
-                            <span className="text-sm text-gray-200 mb-2">{testimonial.country}</span>
+                            <span className="text-sm text-gray-200 mb-2">{t({id: `country.${testimonial.countryCode}`})}</span>
                             <p className="text-gray-100 mb-4 line-clamp-2">
                                 {testimonial.content.length > 60
                                     ? testimonial.content.slice(0, 60) + '...'
                                     : testimonial.content}
                             </p>
                             <button className="mt-auto text-xs text-gray-300 bg-black/30 px-3 py-1 rounded hover:bg-black/50">
-                                Voir l'avis
+                                {t({id: "testimonials.review"})}
                             </button>
                         </div>
                     ))}

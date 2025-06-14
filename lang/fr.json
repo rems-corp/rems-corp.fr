@@ -25,5 +25,15 @@
     "about.section.service3.description": "Nous optimisons votre site web pour qu'il se classe plus haut sur les moteurs de recherche.",
     "about.section.text4": "Nous créons des designs époustouflants et conviviaux qui captivent votre audience.",
     "about.section.text5": "Nous créons des sites web robustes et évolutifs adaptés à vos besoins commerciaux.",
-    "about.section.text6": "Nous optimisons votre site web pour qu'il se classe plus haut sur les moteurs de recherche."
+    "about.section.text6": "Nous optimisons votre site web pour qu'il se classe plus haut sur les moteurs de recherche.",
+
+    "country.fr": "France",
+    "country.gb": "Royaume-Uni",
+    "country.be": "Belgique",
+    "country.ch": "Suisse",
+    "country.it": "Italie",
+    "country.us": "États-Unis",
+    "country.in": "Inde",
+
+    "testimonials.review": "Voir l'avis"
 }
