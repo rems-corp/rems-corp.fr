@@ -9,10 +9,10 @@
 
     "contact.title": "Contact us",
     "contact.desc": "Feel free to contact us however you like. Whether you have a question, an opinion, or a collaboration proposal, we'll be happy to hear from you.",
-    "contact.form.name": "Name",
     "contact.form.email": "Email",
     "contact.form.subject": "Message",
     "contact.form.submit": "Submit",
+    "contact.form.success": "Your message has been sent successfully!",
     "contact.emailLink": "Or click here to view our email address",
 
     "about.section.title": "About Us",
