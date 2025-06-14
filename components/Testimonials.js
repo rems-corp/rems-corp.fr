@@ -75,8 +75,13 @@ const Testimonials = () => {
     const handlePrev = () => setPage((prev) => Math.max(prev - 1, 0));
     const handleNext = () => setPage((prev) => Math.min(prev + 1, totalPages - 1));
 
-    // On détecte si on est sur mobile (window width < 768px)
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setIsMobile(window.innerWidth < 768);
+        }
+    }, []);
 
     // Sur mobile, on affiche tout, sinon on pagine
     const displayedTestimonials = isMobile

@@ -9,8 +9,14 @@ const Contact = () => {
     const [ state, handleSubmit ] = useForm("meokkqeg");
     const [ showSuccess, setShowSuccess ] = useState(false);
 
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setIsMobile(window.innerWidth < 768);
+        }
+    }, []);
+
     useEffect(() => {
         if (state.succeeded) {
             setShowSuccess(true);
