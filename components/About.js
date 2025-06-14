@@ -2,12 +2,12 @@ import { FormattedMessage } from 'react-intl';
 
 const About = () => {
     return (
-        <section id="about" className="min-h-screen bg-cover bg-center flex items-center" style={{ backgroundImage: `url('/logopc.png')` }}>
+        <section id="about" className="min-h-screen bg-gray-800 flex items-center">
             <div className="container mx-auto px-4 py-24 text-center text-white">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                    <h3 className="text-4xl lg:text-5xl font-bold mt-8 mb-8 text-white p-6 rounded-lg">
                         <FormattedMessage id="about.section.title" defaultMessage="About Us" />
-                    </h2>
+                    </h3>
                     <p className="text-lg md:text-xl leading-relaxed mb-8 text-white">
                         <FormattedMessage
                             id="about.section.description"
@@ -17,7 +17,7 @@ const About = () => {
                 </div>
 
                 <div className="flex justify-center space-x-4">
-                    <div className="max-w-xs p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                    <div className="max-w-xs p-4 bg-white bg-opacity-50 rounded-lg">
                         <h3 className="text-xl font-bold mb-2 text-white">
                             <FormattedMessage id="about.section.service1.title" defaultMessage="Web Design" />
                         </h3>
@@ -28,7 +28,7 @@ const About = () => {
                             />
                         </p>
                     </div>
-                    <div className="max-w-xs p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                    <div className="max-w-xs p-4 bg-white bg-opacity-50 rounded-lg">
                         <h3 className="text-xl font-bold mb-2 text-white">
                             <FormattedMessage id="about.section.service2.title" defaultMessage="Web Development" />
                         </h3>
@@ -39,7 +39,7 @@ const About = () => {
                             />
                         </p>
                     </div>
-                    <div className="max-w-xs p-4 bg-gray-800 bg-opacity-50 rounded-lg">
+                    <div className="max-w-xs p-4 bg-white bg-opacity-50 rounded-lg">
                         <h3 className="text-xl font-bold mb-2 text-white">
                             <FormattedMessage id="about.section.service3.title" defaultMessage="Optimization" />
                         </h3>

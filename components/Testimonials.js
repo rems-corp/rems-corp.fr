@@ -83,8 +83,7 @@ const Testimonials = () => {
     return (
         <section id="testimonials" className="min-h-screen bg-gray-800 relative overflow-hidden">
             <div className="container mx-auto text-center relative z-10 flex flex-col justify-center py-16">
-                {/* Titre de la section encadré en rouge avec bordure épaisse */}
-                <h3 className="text-4xl lg:text-5xl font-bold mt-8 mb-8 text-white border-4 border-red-500 p-6 rounded-lg shadow-2xl">
+                <h3 className="text-4xl lg:text-5xl font-bold mt-8 mb-8 text-white p-6 rounded-lg">
                     Testimonials
                 </h3>
                 <div
