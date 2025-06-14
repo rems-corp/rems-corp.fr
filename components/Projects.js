@@ -18,6 +18,9 @@ const projects = [
 const Projects = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    
+    // On détecte si on est sur mobile (window width < 768px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
     useEffect(() => {
         if (isPaused) return;
@@ -71,7 +74,7 @@ const Projects = () => {
                                 style={{
                                     maxWidth: '320px',
                                     margin: '0 auto',
-                                    ...(window.innerWidth >= 640 ? { maxWidth: 'none' } : {})
+                                    ...(!isMobile ? { maxWidth: 'none' } : {})
                                 }}
                             >
                                 <img 
