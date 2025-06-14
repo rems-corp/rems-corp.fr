@@ -2,7 +2,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
-const Contact = (isMobile) => {
+const Contact = ({ isMobile }) => {
     const intl = useIntl();
     const t = intl.formatMessage;
 
