@@ -26,7 +26,7 @@ const Layout = ({ children, locale, setLocale }) => {
 
   return (
     <div className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative overflow-y-auto`}>
-      <Header locale={locale} setLocale={setLocale}/>
+      <Header locale={locale} setLocale={setLocale} isMobile={isMobile}/>
       <Nav />
       {children}
       <About />
