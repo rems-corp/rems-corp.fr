@@ -15,17 +15,9 @@ const projects = [
     },
 ];
 
-const Projects = () => {
+const Projects = (isMobile) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
-
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setIsMobile(window.innerWidth < 768);
-        }
-    }, []);
 
     useEffect(() => {
         if (isPaused) return;

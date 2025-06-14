@@ -2,20 +2,12 @@ import { useForm, ValidationError } from "@formspree/react";
 import { useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
-const Contact = () => {
+const Contact = (isMobile) => {
     const intl = useIntl();
     const t = intl.formatMessage;
 
     const [ state, handleSubmit ] = useForm("meokkqeg");
     const [ showSuccess, setShowSuccess ] = useState(false);
-
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setIsMobile(window.innerWidth < 768);
-        }
-    }, []);
 
     useEffect(() => {
         if (state.succeeded) {

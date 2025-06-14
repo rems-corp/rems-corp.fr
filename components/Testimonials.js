@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 // Tableau des témoignages //
@@ -64,7 +64,7 @@ const Stars = ({ rating }) => (
 );
 
 // Composant Testimonials pour afficher les témoignages
-const Testimonials = () => {
+const Testimonials = (isMobile) => {
     const t = useIntl().formatMessage;
     const [selected, setSelected] = useState(null);
     const [page, setPage] = useState(0);
@@ -74,14 +74,6 @@ const Testimonials = () => {
 
     const handlePrev = () => setPage((prev) => Math.max(prev - 1, 0));
     const handleNext = () => setPage((prev) => Math.min(prev + 1, totalPages - 1));
-
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setIsMobile(window.innerWidth < 768);
-        }
-    }, []);
 
     // Sur mobile, on affiche tout, sinon on pagine
     const displayedTestimonials = isMobile
