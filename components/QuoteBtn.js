@@ -7,7 +7,7 @@ const QuoteBtn = () => {
     <div className="mx-auto xl:mx-0">
       <button
         onClick={() => scrollToPage("contact")}
-        className="relative w-48 h-16 xl:m-0 md:mt-11 flex justify-center items-center group border-white border-solid border-2 hover:bg-white hover:text-black transition-all duration-300"
+        className="relative w-full h-16 p-6 xl:m-0 md:mt-11 flex justify-center items-center group border-white border-solid border-2 hover:bg-white hover:text-black transition-all duration-300"
       >
           <FormattedMessage id="home.btn" />
           <HiArrowRight className="ml-2 text-xl group-hover:translate-x-1 transition-transform duration-300" />
