@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
@@ -116,10 +117,11 @@ const Testimonials = ({ isMobile }) => {
                             onClick={!isMobile ? () => setSelected(page * cardsPerPage + index) : undefined}
                         >
                             <div className="flex items-center mb-2">
-                                <img
+                                <Image
                                     src={`https://flagcdn.com/24x18/${testimonial.countryCode}.png`}
                                     alt={t({id: `country.${testimonial.countryCode}`})}
                                     className="w-6 h-4 mr-2 rounded shadow"
+                                    width="10" height="10"
                                 />
                                 <span className="font-bold text-lg">{testimonial.name}</span>
                             </div>
@@ -177,10 +179,11 @@ const Testimonials = ({ isMobile }) => {
                                 &times;
                             </button>
                             <div className="flex items-center mb-2">
-                                <img
+                                <Image
                                     src={`https://flagcdn.com/32x24/${testimonials[selected].countryCode}.png`}
                                     alt={testimonials[selected].country}
                                     className="w-8 h-6 mr-3 rounded shadow"
+                                    width="10" height="10"
                                 />
                                 <span className="font-bold text-xl text-gray-800">{testimonials[selected].name}</span>
                             </div>
