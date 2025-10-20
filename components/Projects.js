@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import { FormattedMessage } from 'react-intl';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const projects = [
     {
-        title: 'Yinsh game in Python',
-        description: 'Le jeu propose plusieurs modes : affrontez un autre joueur sur le même ordinateur, jouez contre l’IA, connectez-vous en local via deux PC en réseau, ou défiez des adversaires du monde entier en ligne. Deux modes de jeu sont disponibles, normal ou blitz, selon les règles classiques. L’interface conviviale met en évidence les déplacements possibles à chaque tour et détaille les actions de l’IA pour une meilleure compréhension. Les graphismes et l’interface ont été entièrement créés pour une expérience optimale.',
+        title: <FormattedMessage id="projects.nda.title" />,
+        description: <FormattedMessage id="projects.nda.description" />,
+        image: "https://www.creativefabrica.com/wp-content/uploads/2021/02/27/Confidential-Stamp-Vector-Illustration-Graphics-8999179-1.jpg",
+    },
+    {
+        title: <FormattedMessage id="projects.yinsh.title" />,
+        description: <FormattedMessage id="projects.yinsh.description" />,
         image: 'https://cf.geekdo-images.com/a9Dco_g83IUWxrpxsw8ibw__opengraph/img/74phPN2CgM3gtbOs4tUwsiE62I8=/0x0:510x268/fit-in/1200x630/filters:strip_icc()/pic2844830.png', 
     },
     {
-        title: "Cours pour la création d'app mobile",
-        description: "Pendant plusieurs mois, j’ai eu le plaisir d’accompagner une personne dans la création de son application mobile avec Flutter Flow. Ensemble, nous avons exploré les concepts essentiels du développement mobile, de la prise en main de l’outil à la compréhension des widgets et de la navigation. J’ai apporté mon aide à chaque étape, de la conception des écrans à l’optimisation de l’interface, en partageant des conseils pratiques et des astuces pour structurer efficacement le projet. Cet accompagnement personnalisé a permis à la personne de progresser rapidement et de gagner en autonomie, tout en développant une application à la fois fonctionnelle et attrayante.",
+        title: <FormattedMessage id="projects.flutterflow.title" />,
+        description: <FormattedMessage id="projects.flutterflow.description" />,
         image: "https://cdn.prod.website-files.com/63c6a35ee97bea3e121bf3f4/65ba7491e40fedfb99bcc637_6400a42c1d0e4a0280784426_flutterflow.webp",
     },
 ];
@@ -44,7 +50,7 @@ const Projects = ({ isMobile }) => {
         >
             <div className="container mx-auto text-center px-2 sm:px-4 lg:px-8 flex-1 flex flex-col justify-center mt-[-45px] md:mt-0">
                 <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-4 sm:mt-8 mb-4 sm:mb-8 text-white p-4 sm:p-6 rounded-lg">
-                    Projects
+                    <FormattedMessage id="projects.title" />
                 </h3>
                 <div
                     className="w-full max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mx-auto relative"
