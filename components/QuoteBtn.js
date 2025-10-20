@@ -1,6 +1,6 @@
 import { HiArrowRight } from "react-icons/hi2";
 import { FormattedMessage } from "react-intl";
-import { scrollToPage } from "./nav";
+import { scrollToPage } from "./Nav";
 
 const QuoteBtn = () => {  
   return (
