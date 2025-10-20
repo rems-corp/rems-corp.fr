@@ -78,9 +78,9 @@ const Contact = ({ isMobile }) => {
 
 
                 <div className="text-center mt-auto mb-4 text-xs sm:text-sm">
-                    <p>Rem's Corp - Entreprise Individuelle</p>
+                    <p>Rem&aposs Corp - Entreprise Individuelle</p>
                     <p>SIREN 923902506 - NAF 8299Z</p>
-                    <p>© Copyright 2023 Rem's Corp</p>
+                    <p>© Copyright 2023 Rem&aposs Corp</p>
                     {isMobile && <div><br /><br /></div>}
                 </div>
             </div>

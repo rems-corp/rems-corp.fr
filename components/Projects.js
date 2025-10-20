@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { FormattedMessage } from 'react-intl';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Image from 'next/image';
 
 const projects = [
     {
@@ -80,10 +81,11 @@ const Projects = ({ isMobile }) => {
                                     ...(!isMobile ? { maxWidth: 'none' } : {})
                                 }}
                             >
-                                <img 
+                                <Image
                                     src={project.image} 
                                     alt={project.title} 
                                     className="w-full h-32 sm:h-48 lg:h-64 object-cover"
+                                    width="100" height="100"
                                 />
                                 <div className="p-2 sm:p-4 lg:p-6">
                                     <h3 className="text-base sm:text-xl lg:text-2xl font-bold mb-2">{project.title}</h3>
