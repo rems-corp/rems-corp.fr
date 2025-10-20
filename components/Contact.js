@@ -70,9 +70,12 @@ const Contact = ({ isMobile }) => {
 
                 <hr className="md:block xl:block w-11/12 md:w-96 my-6" />
 
-                <a className="mail pre break-all text-xs sm:text-base" href="mailto:contact@rems-corp.fr">
+                {/* <a className="mail pre break-all text-xs sm:text-base" href="mailto:contact@rems-corp.fr"> */}
+                <span>
                     contact@rems-corp.fr
-                </a>
+                </span>
+                {/* </a> */}
+
 
                 <div className="text-center mt-auto mb-4 text-xs sm:text-sm">
                     <p>Rem's Corp - Entreprise Individuelle</p>

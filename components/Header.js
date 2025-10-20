@@ -13,7 +13,7 @@ const Header = ({ locale, setLocale, isMobile }) => {
         {locale === "fr" ? "Switch to English" : "Passer en Français"}
       </button>}
 
-      {isMobile && <button onClick={toggleLocale} className='fixed top-2 right-2 bg-primary p-2 rounded-lg text-white z-50'>
+      {isMobile && <button onClick={toggleLocale} className='fixed top-2 right-4 bg-primary p-2 rounded-lg text-white z-50'>
         {locale === "fr" ? "EN" : "FR"}
       </button>}
       
